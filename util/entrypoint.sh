@@ -49,11 +49,6 @@ if [ -n "$IFACE" ]; then
         exit 1
     fi
 
-    uid=$(stat -c%u "$data_dir")
-    gid=$(stat -c%g "$data_dir")
-    groupmod -og $gid dhcpd
-    usermod -ou $uid dhcpd
-
     [ -e "$data_dir/dhcpd.leases" ] || touch "$data_dir/dhcpd.leases"
     chown dhcpd:dhcpd "$data_dir/dhcpd.leases"
     if [ -e "$data_dir/dhcpd.leases~" ]; then
