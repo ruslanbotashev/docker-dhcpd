@@ -46,8 +46,8 @@ jobs:
           push: true
           file: Dockerfile.ldap
           tags:
-            networkboot/dhcpd:ldap-${{ steps.semver-parser.outputs.fullversion }},
-            networkboot/dhcpd:ldap-${{ steps.semver-parser.outputs.major }}
+            miver/dhcpd:ldap-${{ steps.semver-parser.outputs.fullversion }},
+            miver/dhcpd:ldap-${{ steps.semver-parser.outputs.major }}
 
       - name: Print LDAP Image Digest
         run: echo ${{ steps.docker_build_ldap.outputs.digest }}
@@ -59,8 +59,8 @@ jobs:
           platforms: linux/amd64,linux/arm/v7,linux/arm64
           push: true
           tags:
-            networkboot/dhcpd:${{ steps.semver-parser.outputs.fullversion }},
-            networkboot/dhcpd:${{ steps.semver-parser.outputs.major }}
+            miver/dhcpd:${{ steps.semver-parser.outputs.fullversion }},
+            miver/dhcpd:${{ steps.semver-parser.outputs.major }}
 
       - name: Print Image Digest
         run: echo ${{ steps.docker_build.outputs.digest }}
